@@ -9,6 +9,11 @@ public class RepoDto {
     @JsonProperty("stargazers_count")
     private Long stargazers;
 
+    public RepoDto(String name, Long stargazers) {
+        this.name = name;
+        this.stargazers = stargazers;
+    }
+
     public String getName() {
         return name;
     }

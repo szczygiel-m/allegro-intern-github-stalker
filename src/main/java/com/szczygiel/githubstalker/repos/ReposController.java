@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -22,12 +21,18 @@ public class ReposController {
         this.reposService = reposService;
     }
 
+    /*
+        GET /api/v1/repos/{user}
+        @variable user name to list repositories
+        @params pagination params
+        @return paginated list of user repos
+     */
     @GetMapping("{user}")
     public ResponseEntity<?> getRepositoriesByUser(
             @PathVariable String user,
-            @RequestParam Optional<Long> page,
-            @RequestParam Optional<Long> page_size) {
-        Pair<ReposResponseDto, List<String>> serverResponse = reposService.getRepositoriesByUser(user, page, page_size);
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "30") int per_page) {
+        Pair<ReposResponseDto, List<String>> serverResponse = reposService.getRepositoriesByUser(user, page, per_page);
         if (serverResponse.getValue1() != null) {
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.set("Link", serverResponse.getValue1().stream().map(String::valueOf).collect(Collectors.joining("")));

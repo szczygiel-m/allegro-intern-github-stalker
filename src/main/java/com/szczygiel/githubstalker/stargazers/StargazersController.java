@@ -19,6 +19,11 @@ public class StargazersController {
         this.stargazersService = stargazersService;
     }
 
+    /*
+        GET /api/v1/stargazers/{user}
+        @variable user name to sum stargazers
+        @return sum of stargazers of all user repos
+     */
     @GetMapping("{user}")
     public ResponseEntity<?> getStargazersByUser(@PathVariable String user) {
         StargazersDto stargazersDto = stargazersService.getStargazersByUser(user);

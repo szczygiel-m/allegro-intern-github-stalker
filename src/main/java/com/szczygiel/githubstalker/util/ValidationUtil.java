@@ -1,7 +1,9 @@
 package com.szczygiel.githubstalker.util;
 
 import com.szczygiel.githubstalker.exception.InvalidUsernameException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ValidationUtil {
 
     public static void validateUsername(String username) {

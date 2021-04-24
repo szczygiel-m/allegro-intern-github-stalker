@@ -1,6 +1,6 @@
 application:
   github:
-    authToken: '**YOUR SECRET TOKEN**'
+    authToken: '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'
     urlPrefix: 'https://api.github.com/users/'
 spring:
   cache:
