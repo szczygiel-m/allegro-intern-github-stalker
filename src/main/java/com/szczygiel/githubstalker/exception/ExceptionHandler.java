@@ -35,7 +35,7 @@ public class ExceptionHandler {
         return responseBody;
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.GATEWAY_TIMEOUT)
     @org.springframework.web.bind.annotation.ExceptionHandler(
             RequestTimeoutException.class
     )
