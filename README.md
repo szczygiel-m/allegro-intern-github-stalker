@@ -37,7 +37,7 @@
         <ul>
             <li><a href="#from-terminal">From Terminal</a></li>
             <li><a href="#from-ide">From IDE</a></li>
-            <li><a href="#with-dockerhub">With Docker</a></li>
+            <li><a href="#with-dockerhub">With Dockerhub</a></li>
         </ul>
     </li>
     <li><a href="#api-documentation">API Documentation</a>
