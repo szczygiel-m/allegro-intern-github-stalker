@@ -16,9 +16,9 @@
   <p align="center">
     The recruitment task number 3 for Allegro Summer e-Xperience 2021. <br />
  <br />
-    <a href="https://github.com/szczygiel2000/PCBuilderShopApplication---Backend/issues">Report Bug</a>
+    <a href="https://github.com/szczygiel2000/allegro-intern-github-stalker/issues">Report Bug</a>
     ·
-    <a href="https://github.com/szczygiel2000/PCBuilderShopApplication---Backend/issues">Request Feature</a>
+    <a href="https://github.com/szczygiel2000/allegro-intern-github-stalker/issues">Request Feature</a>
   </p>
 
 
@@ -321,7 +321,7 @@ Mateusz Szczygieł - [mszczygiel.contact@gmail.com](mailto:mszczygiel.contact@gm
 
 [license-shield]: https://img.shields.io/github/license/szczygiel2000/allegro-intern-github-stalker.svg?style=for-the-badge
 
-[license-url]: https://github.com/szczygiel2000/allegro-intern-github-stalker/blob/master/LICENSE.txt
+[license-url]: https://github.com/szczygiel2000/allegro-intern-github-stalker/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
