@@ -80,7 +80,7 @@ Server application that allows: <br />
 
 To quickly run local GitHubStalker server follow instructions bellow.
 
-###From Terminal
+### From Terminal
 
 
 1. Make sure you have gradle and java version 11 or higher installed.
@@ -91,7 +91,7 @@ To quickly run local GitHubStalker server follow instructions bellow.
 6. Run project with `./gradlew bootRun`.
 
 
-###From IDE
+### From IDE
 
 <ol>
     <li>Clone this repository. You can do this manually or from IDE.</li>
@@ -101,7 +101,7 @@ To quickly run local GitHubStalker server follow instructions bellow.
     <li>Run project and enjoy.</li>
 </ol>
 
-###With Dockerhub
+### With Dockerhub
 
 
 1. Pull the image from Dockerhub.
@@ -135,7 +135,7 @@ spring:
 
 ## Api Documentation
 
-###Repos Endpoint:
+### Repos Endpoint:
 
 * GET, path: **/repos/{user}**
 
@@ -206,7 +206,7 @@ curl -X GET "http://localhost:8080/api/v1/repos/allegro?page=3&per_page=4" -H "a
 ```
 With Http Status Code: 200 (OK)
 
-###Stargazers Endpoint 
+### Stargazers Endpoint 
 
 * GET, path: **/stargazers/{user}**
 
@@ -238,7 +238,7 @@ curl -X GET "http://localhost:8080/api/v1/stargazers/allegro" -H "accept: */*"
 ```
 With Http Status Code: 200 (OK)
 
-###Errors
+### Errors
 
 **Not Found**
 
