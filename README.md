@@ -108,6 +108,7 @@ To quickly run local GitHubStalker server follow instructions bellow.
 3. Pull the image from Dockerhub with:
 
 ```$ docker pull szczygiel2000/github-stalker-allegro-intern:v1```
+
 4. Run container with: 
    
 ```$ docker run -p 9090:8080 szczygiel2000/github-stalker-allegro-intern:v1```
