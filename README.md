@@ -2,7 +2,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -318,10 +317,6 @@ Mateusz Szczygieł - [mszczygiel.contact@gmail.com](mailto:mszczygiel.contact@gm
 [issues-shield]: https://img.shields.io/github/issues/szczygiel2000/allegro-intern-github-stalker.svg?style=for-the-badge
 
 [issues-url]: https://github.com/szczygiel2000/allegro-intern-github-stalker/issues
-
-[license-shield]: https://img.shields.io/github/license/szczygiel2000/allegro-intern-github-stalker.svg?style=for-the-badge
-
-[license-url]: https://github.com/szczygiel2000/allegro-intern-github-stalker/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
