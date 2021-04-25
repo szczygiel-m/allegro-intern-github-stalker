@@ -35,11 +35,11 @@ public class StargazersControllerTests {
                 .perform(get(stargazersControllerPath + "/" + user))
                 .andReturn()
                 .getResponse();
-        StargazersDto stargazersDto = objectMapper.readValue(response.getContentAsByteArray(), StargazersDto.class);
+        StargazersResponse stargazersResponseDto = objectMapper.readValue(response.getContentAsByteArray(), StargazersResponse.class);
 
         //then
-        assertEquals(user, stargazersDto.getUser());
-        assertTrue(stargazersDto.getTotalStargazers() > 100000);
+        assertEquals(user, stargazersResponseDto.getUser());
+        assertTrue(stargazersResponseDto.getTotalStargazers() > 100000);
     }
 
     @Test
@@ -52,11 +52,11 @@ public class StargazersControllerTests {
                 .perform(get(stargazersControllerPath + "/" + user))
                 .andReturn()
                 .getResponse();
-        StargazersDto stargazersDto = objectMapper.readValue(response.getContentAsByteArray(), StargazersDto.class);
+        StargazersResponse stargazersResponseDto = objectMapper.readValue(response.getContentAsByteArray(), StargazersResponse.class);
 
         //then
-        assertEquals(user, stargazersDto.getUser());
-        assertTrue(stargazersDto.getTotalStargazers() < 100);
+        assertEquals(user, stargazersResponseDto.getUser());
+        assertTrue(stargazersResponseDto.getTotalStargazers() < 100);
     }
 
     @Test

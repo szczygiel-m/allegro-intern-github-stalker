@@ -26,27 +26,27 @@ public class ReposService {
     }
 
     @Cacheable("RepositoriesByUser")
-    public Pair<ReposResponseDto, List<String>> getRepositoriesByUser(String user,
-                                                                      int page,
-                                                                      int pageSize) {
+    public Pair<ReposResponse, List<String>> getRepositoriesByUser(String user,
+                                                                   int page,
+                                                                   int pageSize) {
         ValidationUtil.validateUsername(user);
         String urlEnd = UrlGeneratorUtil.createUrlEnd(user, page, pageSize);
-        ResponseEntity<List<RepoDto>> responseEntity = sendGitHubRequest(urlEnd);
+        ResponseEntity<List<Repo>> responseEntity = sendGitHubRequest(urlEnd, user);
         List<String> paginationLinks = responseEntity.getHeaders().get("Link");
         if (paginationLinks != null) {
             paginationLinks = UrlGeneratorUtil.generatePaginationLinks(responseEntity.getHeaders());
         }
-        return new Pair<>(new ReposResponseDto(user, responseEntity.getBody()), paginationLinks);
+        return new Pair<>(new ReposResponse(user, responseEntity.getBody()), paginationLinks);
     }
 
-    private ResponseEntity<List<RepoDto>> sendGitHubRequest(String urlEnd) {
+    private ResponseEntity<List<Repo>> sendGitHubRequest(String urlEnd, String user) {
         try {
             return restTemplate.exchange(urlEnd, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
             });
         } catch (ResourceAccessException e) {
             throw new RequestTimeoutException("GitHub wasn't responding for too long.");
         } catch (RestClientException e) {
-            throw new UserNotFoundException("User not found.");
+            throw new UserNotFoundException("User '" + user + "' not found.");
         }
     }
 }

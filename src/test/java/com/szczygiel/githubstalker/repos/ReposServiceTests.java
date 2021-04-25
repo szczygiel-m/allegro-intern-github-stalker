@@ -20,7 +20,7 @@ public class ReposServiceTests {
     @Test
     public void shouldReturnThirtyRepos() {
         //given
-        Pair<ReposResponseDto, List<String>> serviceResponse;
+        Pair<ReposResponse, List<String>> serviceResponse;
 
         //when
         serviceResponse = reposService.getRepositoriesByUser("allegro", 1, 30);
@@ -33,7 +33,7 @@ public class ReposServiceTests {
     @Test
     public void shouldReturnFiftyRepos() {
         //given
-        Pair<ReposResponseDto, List<String>> serviceResponse;
+        Pair<ReposResponse, List<String>> serviceResponse;
 
         //when
         serviceResponse = reposService.getRepositoriesByUser("allegro", 1, 50);
@@ -46,7 +46,7 @@ public class ReposServiceTests {
     @Test
     public void shouldReturnSeventyReposAtThirdPage() {
         //given
-        Pair<ReposResponseDto, List<String>> serviceResponse;
+        Pair<ReposResponse, List<String>> serviceResponse;
 
         //when
         serviceResponse = reposService.getRepositoriesByUser("allegro", 1, 70);
@@ -58,15 +58,11 @@ public class ReposServiceTests {
 
     @Test
     public void shouldThrowUserNotFoundException() {
-        assertThrows(UserNotFoundException.class, () -> {
-            reposService.getRepositoriesByUser("asdasdasdassfffdgasdasd", 1, 30);
-        });
+        assertThrows(UserNotFoundException.class, () -> reposService.getRepositoriesByUser("asdasdasdassfffdgasdasd", 1, 30));
     }
 
     @Test
     public void shouldThrowInvalidUsernameException() {
-        assertThrows(InvalidUsernameException.class, () -> {
-            reposService.getRepositoriesByUser("a".repeat(50), 1, 30);
-        });
+        assertThrows(InvalidUsernameException.class, () -> reposService.getRepositoriesByUser("a".repeat(50), 1, 30));
     }
 }

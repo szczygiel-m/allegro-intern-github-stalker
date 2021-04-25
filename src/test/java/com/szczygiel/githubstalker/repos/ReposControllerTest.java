@@ -34,11 +34,11 @@ public class ReposControllerTest {
                 .perform(get(reposControllerPath + "/" + user))
                 .andReturn()
                 .getResponse();
-        ReposResponseDto reposResponseDto = objectMapper.readValue(response.getContentAsByteArray(), ReposResponseDto.class);
+        ReposResponse reposResponse = objectMapper.readValue(response.getContentAsByteArray(), ReposResponse.class);
 
         //then
-        assertEquals(30, reposResponseDto.getUserRepos().size());
-        assertEquals(user, reposResponseDto.getUser());
+        assertEquals(30, reposResponse.getUserRepos().size());
+        assertEquals(user, reposResponse.getUser());
         assertNotNull(response.getHeader("Link"));
     }
 
@@ -52,11 +52,11 @@ public class ReposControllerTest {
                 .perform(get(reposControllerPath + "/" + user + "?per_page=50"))
                 .andReturn()
                 .getResponse();
-        ReposResponseDto reposResponseDto = objectMapper.readValue(response.getContentAsByteArray(), ReposResponseDto.class);
+        ReposResponse reposResponse = objectMapper.readValue(response.getContentAsByteArray(), ReposResponse.class);
 
         //then
-        assertEquals(50, reposResponseDto.getUserRepos().size());
-        assertEquals(user, reposResponseDto.getUser());
+        assertEquals(50, reposResponse.getUserRepos().size());
+        assertEquals(user, reposResponse.getUser());
         assertNotNull(response.getHeader("Link"));
     }
 
@@ -70,11 +70,11 @@ public class ReposControllerTest {
                 .perform(get(reposControllerPath + "/" + user + "?page=3&per_page=70"))
                 .andReturn()
                 .getResponse();
-        ReposResponseDto reposResponseDto = objectMapper.readValue(response.getContentAsByteArray(), ReposResponseDto.class);
+        ReposResponse reposResponse = objectMapper.readValue(response.getContentAsByteArray(), ReposResponse.class);
 
         //then
-        assertEquals(70, reposResponseDto.getUserRepos().size());
-        assertEquals(user, reposResponseDto.getUser());
+        assertEquals(70, reposResponse.getUserRepos().size());
+        assertEquals(user, reposResponse.getUser());
         assertNotNull(response.getHeader("Link"));
     }
 

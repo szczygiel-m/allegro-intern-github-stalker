@@ -2,7 +2,7 @@ package com.szczygiel.githubstalker.stargazers;
 
 import com.szczygiel.githubstalker.exception.RequestTimeoutException;
 import com.szczygiel.githubstalker.exception.UserNotFoundException;
-import com.szczygiel.githubstalker.repos.RepoDto;
+import com.szczygiel.githubstalker.repos.Repo;
 import com.szczygiel.githubstalker.util.ValidationUtil;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpMethod;
@@ -21,18 +21,18 @@ public class StargazersService {
     }
 
     @Cacheable("StargazersByUser")
-    public StargazersDto getStargazersByUser(String user) {
+    public StargazersResponse getStargazersByUser(String user) {
         ValidationUtil.validateUsername(user);
-        return new StargazersDto(user, calculateTotalStargazers(user));
+        return new StargazersResponse(user, calculateTotalStargazers(user));
     }
 
     private Long calculateTotalStargazers(String user) {
         Long stargazersCounter = 0L;
         int page = 1;
-        RepoDto[] userRepos;
+        Repo[] userRepos;
         do {
             String urlEnd = createUrlEnd(user, page);
-            userRepos = getReposPage(urlEnd);
+            userRepos = getReposPage(urlEnd, user);
             if (userRepos == null) {
                 return 0L;
             }
@@ -43,22 +43,22 @@ public class StargazersService {
         return stargazersCounter;
     }
 
-    private Long calculatePageStargazers(RepoDto[] userRepos) {
+    private Long calculatePageStargazers(Repo[] userRepos) {
         Long pageStargazers = 0L;
-        for (RepoDto repoDto : userRepos) {
-            pageStargazers += repoDto.getStargazers();
+        for (Repo repo : userRepos) {
+            pageStargazers += repo.getStargazers();
         }
         return pageStargazers;
     }
 
-    private RepoDto[] getReposPage(String urlEnd) {
+    private Repo[] getReposPage(String urlEnd, String user) {
         try {
             return restTemplate
-                    .exchange(urlEnd, HttpMethod.GET, null, RepoDto[].class).getBody();
+                    .exchange(urlEnd, HttpMethod.GET, null, Repo[].class).getBody();
         } catch (ResourceAccessException e) {
             throw new RequestTimeoutException("GitHub wasn't responding for too long.");
         } catch (RestClientException e) {
-            throw new UserNotFoundException("User not found.");
+            throw new UserNotFoundException("User '" + user + "' not found.");
         }
     }
 

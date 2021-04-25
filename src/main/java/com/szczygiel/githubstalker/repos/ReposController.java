@@ -32,7 +32,7 @@ public class ReposController {
             @PathVariable String user,
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "30") int per_page) {
-        Pair<ReposResponseDto, List<String>> serverResponse = reposService.getRepositoriesByUser(user, page, per_page);
+        Pair<ReposResponse, List<String>> serverResponse = reposService.getRepositoriesByUser(user, page, per_page);
         if (serverResponse.getValue1() != null) {
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.set("Link", serverResponse.getValue1().stream().map(String::valueOf).collect(Collectors.joining("")));

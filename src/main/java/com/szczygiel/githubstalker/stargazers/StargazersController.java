@@ -26,7 +26,7 @@ public class StargazersController {
      */
     @GetMapping("{user}")
     public ResponseEntity<?> getStargazersByUser(@PathVariable String user) {
-        StargazersDto stargazersDto = stargazersService.getStargazersByUser(user);
-        return new ResponseEntity<>(stargazersDto, HttpStatus.OK);
+        StargazersResponse stargazersResponseDto = stargazersService.getStargazersByUser(user);
+        return new ResponseEntity<>(stargazersResponseDto, HttpStatus.OK);
     }
 }
