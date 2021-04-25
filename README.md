@@ -37,7 +37,7 @@
         <ul>
             <li><a href="#from-terminal">From Terminal</a></li>
             <li><a href="#from-ide">From IDE</a></li>
-            <li><a href="#with-docker">With Docker</a></li>
+            <li><a href="#with-dockerhub">With Docker</a></li>
         </ul>
     </li>
     <li><a href="#api-documentation">API Documentation</a>
@@ -102,7 +102,6 @@ To quickly run local GitHubStalker server follow instructions bellow.
 </ol>
 
 ### With Dockerhub
-
 
 1. Pull the image from Dockerhub.
 2. Open any terminal.
